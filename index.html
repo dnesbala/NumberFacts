@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Number Facts</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+  <link rel="stylesheet" href="bootstrap.css">
+  <style>
+    body {
+      background: #006442;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark mb-3">
+      <div class="container">
+        <a href="#" class="navbar-brand">Number Facts</a>
+        <ul class="navbar-nav">
+          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container text-center text-white mb-2">
+      <h2>NUMBER FACTS</h2>
+      <p class="lead p-2">Let's have fun with numbers</p>
+    </div>
+
+    <div class="form-check bg-light monospace p-3 text-center mb-4">
+      <div class="row">
+        <div class="col">
+          <input type="radio" class="form-check-label" id="trivia" name="option" checked>
+          <label for="trivia" class="btn btn-outline-primary ml-2">Trivia</label>
+        </div>
+
+        <div class="col">
+          <input type="radio" class="form-check-label" id="maths" name="option">
+          <label for="maths" class="btn btn-outline-success ml-2">Maths</label>
+        </div>
+
+        <div class="col">
+          <input type="radio" class="form-check-label" id="year" name="option">
+          <label for="year" class="btn btn-outline-primary ml-2">Year</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-1">
+            <i class="far fa-hand-point-right fa-4x" style="color: #dbd6d6"></i>
+          </div>
+          <div class="col-md-11">
+            <div id="searchContainer">
+              <input type="number" class="form-control p-4" placeholder="Enter any number.." id="search">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="result">
+
+      </div>
+    </div>
+
+  </div>
+  <script src="number.js"></script>
+  <script src="ui.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
