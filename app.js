@@ -1,6 +1,6 @@
 // Initialize instances
-const number = new Number;
-const ui = new UI;
+const number = new Number();
+const ui = new UI();
 
 const search = document.getElementById('search'),
   trivia = document.getElementById('trivia'),
@@ -10,48 +10,28 @@ const search = document.getElementById('search'),
 
 search.addEventListener('keyup', requestFact);
 
+function getSpecificFact(value, TYPE) {
+  if (value !== '') {
+    number.getFact(value, TYPE)
+      .then(data => {
+        if (data.fact === "Cannot GET /" + TYPE) {
+          ui.showAlert('Type valid number', 'alert alert-danger');
+        } else {
+          ui.showFact(data.fact);
+        }
+      });
+  } else {
+    ui.clearFact();
+  }
+}
+
 function requestFact(e) {
   const value = e.target.value;
   if (trivia.checked) {
-    if (value !== '') {
-      number.getFact(value, 'trivia')
-        .then(data => {
-          if (data.fact === "Cannot GET /trivia") {
-            ui.showAlert('Type valid number', 'alert alert-danger');
-          } else {
-            ui.showFact(data.fact);
-          }
-        });
-    } else {
-      ui.clearFact();
-    }
+    getSpecificFact(value, 'trivia')
   } else if (math.checked) {
-    const value = e.target.value;
-    if (value !== '') {
-      number.getFact(value, 'math')
-        .then(data => {
-          if (data.fact === "Cannot GET /math") {
-            ui.showAlert('Type valid number', 'alert alert-danger');
-          } else {
-            ui.showFact(data.fact);
-          }
-        });
-    } else {
-      ui.clearFact();
-    }
+    getSpecificFact(value, 'math')
   } else {
-    const value = e.target.value;
-    if (value !== '') {
-      number.getFact(value, 'year')
-        .then(data => {
-          if (data.fact === "Cannot GET /year") {
-            ui.showAlert('Type valid number', 'alert alert-danger');
-          } else {
-            ui.showFact(data.fact);
-          }
-        });
-    } else {
-      ui.clearFact();
-    }
+    getSpecificFact(value, 'year')
   }
 }
